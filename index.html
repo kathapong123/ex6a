@@ -30,13 +30,11 @@
 		</form>
 	</div>
 	<div id="result" style="margin-top:10px;margin-left:10px; font-size: 20px; color:red;">
-	</div>*
-	    $(document).ready(function(){
-			$("button").click(function(){
-			   var t = $('#temp').val();//celsius
-			   var u = $('#unit').val();
-			   
-			   if(isNaN(t)){
+	</div>
+	
+	<script>	
+		function validate(t){
+			if(isNaN(t)){
 					msg = "Please verify whether the temperature value is correct!!!";
 					alert(msg);
 					return;
@@ -46,6 +44,14 @@
 					alert(msg);
 					return;
 			   }
+		}
+	
+		$(document).ready(function(){
+			$("button").click(function(){
+			   var t = $('#temp').val();//celsius
+			   var u = $('#unit').val();
+			   
+			   if(validate(t)==0) return;
 			   
 			   var t1;
 			   var u1;
